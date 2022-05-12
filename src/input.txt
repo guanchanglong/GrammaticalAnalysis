@@ -1,2 +1,2 @@
-S——>aAS|b
-A——>bA|ε
+P——>Pa|b
+V——>Eabc|bc|Vabc|c

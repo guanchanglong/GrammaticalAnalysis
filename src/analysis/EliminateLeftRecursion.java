@@ -13,9 +13,11 @@ import java.util.*;
  */
 public class EliminateLeftRecursion {
 
+    //原始式子
     private Map<String,String> oldFormula = new HashMap<>();
+    //消除左递归后的式子
     private Map<String,String> newFormula = new HashMap<>();
-
+    //经过封装过的式子集合，主要作用是判断是否经历了间接左递归的递归查找过程
     private ArrayList<Formula> param = new ArrayList<>();
     //是否发生了左递归
     private boolean isHappenLeftRecursion;

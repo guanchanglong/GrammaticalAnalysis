@@ -99,6 +99,8 @@ B——>aD|ε
 S——>bB|aD|ε|bC
 C——>bD|aS|c|b
 D——>aS|c
+
+
 A的FIRST集：[b, ε]
 B的FIRST集：[a, ε]
 S的FIRST集：[a, b, ε]

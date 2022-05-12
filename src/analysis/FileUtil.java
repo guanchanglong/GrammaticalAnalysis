@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * @Author 小关同学
  * @Create 2022/5/2 23:30
- * 文件读取/写入
+ * 文件读取
  */
 public class FileUtil {
 
