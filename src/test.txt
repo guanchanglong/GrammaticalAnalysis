@@ -1,0 +1,139 @@
+//测试用例集
+
+//直接左递归
+P——>Pa|b
+V——>Eabc|bc|Vabc|c
+
+消除左递归后的结果：
+P——>bP'
+V'——>abcV'|ε
+V——>EabcV'|bcV'|cV'
+P'——>aP'|ε
+
+P的FIRST集：[b]
+V'的FIRST集：[a, ε]
+V的FIRST集：[b, c, E]
+P'的FIRST集：[a, ε]
+V'的FOLLOW集：[#, V]
+P'的FOLLOW集：[#, P]
+
+
+
+
+
+//间接左递归
+S——>i|h|c|t|Qc
+Q——>Rb|b
+R——>Ba|a
+B——>Cf|H
+C——>Dd|d
+D——>Se|e
+H——>zy|x
+
+消除左递归后的结果：
+S——>bcS'|edfabcS'|dfabcS'|abcS'|xabcS'|zyabcS'
+S'——>edfabcS'|ε
+H——>zy|x
+S的FIRST集：[a, b, d, e, x, z]
+S'的FIRST集：[e, ε]
+H的FIRST集：[x, z]
+S'的FOLLOW集：[#, S]
+
+
+
+S——>ABBA
+A——>a|ε
+B——>b|ε
+消除左递归后的结果：
+A——>a|ε
+B——>b|ε
+S——>aBBA|bBA|bA|a|ε
+A的FIRST集：[a, ε]
+B的FIRST集：[b, ε]
+S的FIRST集：[a, b, ε]
+A的FOLLOW集：[b, #, S]
+B的FOLLOW集：[b, #, S]
+
+
+
+S——>aSe|B
+B——>bBe|C
+C——>cCe|d
+消除左递归后的结果：
+B——>bBe|d|cCe
+S——>bBe|d|cCe
+C——>cCe|d
+B的FIRST集：[b, c, d]
+S的FIRST集：[b, c, d]
+C的FIRST集：[c, d]
+B的FOLLOW集：[#, e]
+C的FOLLOW集：[#, e]
+S的FOLLOW集：[#, e]
+
+
+
+E——>E+T|T
+T——>T*F|F
+F——>(E)|i
+
+消除左递归后的结果：
+E'——>+TE'|ε
+T'——>*FT'|ε
+T——>FT'
+E——>TE'
+F——>(E)|i
+
+
+
+
+
+S——>AB|bC
+A——>b|ε
+B——>aD|ε
+C——>AD|b
+D——>aS|c
+
+消除左递归后的结果：
+A——>b|ε
+B——>aD|ε
+S——>bB|aD|ε|bC
+C——>bD|aS|c|b
+D——>aS|c
+A的FIRST集：[b, ε]
+B的FIRST集：[a, ε]
+S的FIRST集：[a, b, ε]
+C的FIRST集：[a, b, c]
+D的FIRST集：[a, c]
+A的FOLLOW集：[a, c, #]
+B的FOLLOW集：[#]
+C的FOLLOW集：[#]
+S的FOLLOW集：[#]
+D的FOLLOW集：[#]
+
+S的SELECT集：[a,b,#]
+A的SELECT集：[a,b,c,#]
+B的SELECT集：[a,#]
+C的SELECT集：[a,b,c]
+D的SELECT集：[a,c]
+
+
+
+
+S——>ABD|bC
+A——>b|ε
+B——>aD|ε
+C——>AD|b
+D——>aS|c
+
+消除左递归后的结果：
+A——>b|ε
+B——>aD|ε
+S——>bBD|aDD|aS|c|bC
+C——>bD|aS|c|b
+D——>aS|c
+
+
+
+不是LL1文法的例子
+S——>aAS|b
+A——>bA|ε
